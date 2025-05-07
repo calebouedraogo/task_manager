@@ -5,6 +5,8 @@ import com.caleb.taskmanager.repository.TaskRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class TaskController {
@@ -23,6 +25,12 @@ public class TaskController {
     public String createForm(Model model) {
         model.addAttribute("task", new Task());
         return "create";
+    }
+
+    @PostMapping("/tasks")
+    public String create(@ModelAttribute Task task) {
+        taskRepo.save(task);
+        return  "redirect:/";
     }
 
 }
