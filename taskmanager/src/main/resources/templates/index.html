@@ -22,6 +22,10 @@
                 <td th:text="${task.title}"></td>
                 <td th:text="${task.status}"></td>
                 <td th:text="${task.priority}"></td>
+                <td>
+                    <a th:href="@{/tasks/edit/{id}(id=${task.id})}">Edit</a>
+                    <a th:href="@{/tasks/delete/{id}(id=${task.id})}">Delete</a>
+                </td>
             </tr>
         </tbody>
     </table>

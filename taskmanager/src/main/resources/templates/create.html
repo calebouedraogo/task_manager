@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Create New Task</h1>
-    <form action="@{/tasks}" th:object="${task}" method="post">
+    <form th:action="@{/tasks}" th:object="${task}" method="post">
         <input type="text" th:field="*{title}" placeholder="Title" required />
         <input type="text" th:field="*{description}" placeholder="Description" />
         <input type="text" th:field="*{status}" placeholder="Status" />
