@@ -40,4 +40,16 @@ public class TaskController {
         return "edit";
     }
 
+    @PostMapping("/tasks/update")
+    public String update(@ModelAttribute Task task) {
+        taskRepo.save(task);
+        return "redirect:/";
+    }
+
+    @GetMapping("/tasks/delete/{id}")
+    public String delete(@PathVariable Long id) {
+        taskRepo.deleteById(id);
+        return "redirect:/";
+    }
+
 }
